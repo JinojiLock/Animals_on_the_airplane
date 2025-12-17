@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Filters from './components/Filters';
 import AirlineCard from './components/AirlineCard';
 import Footer from './components/Footer';
 import { JsonDataService } from './services/DataService';
-import { Airline } from './types';
+import type { Airline } from './types';
 import { useFilters } from './hooks/useFilters';
 import airlinesData from './data/airlines.json';
 

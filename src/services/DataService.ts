@@ -1,4 +1,4 @@
-import { Airline, TransportMethod } from '../types';
+import type { Airline, TransportMethod } from '../types';
 
 /**
  * Интерфейс для работы с данными авиакомпаний

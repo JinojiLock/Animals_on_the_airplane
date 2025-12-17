@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { TransportMethod, Filters } from '../types';
+import type { TransportMethod, Filters } from '../types';
 
 export const useFilters = () => {
   const [filters, setFilters] = useState<Filters>({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Airline, TransportMethod } from '../types';
+import type { Airline, TransportMethod } from '../types';
 
 interface AirlineCardProps {
   airline: Airline;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransportMethod } from '../types';
+import type { TransportMethod } from '../types';
 
 interface FiltersProps {
   selectedMethods: TransportMethod[];
