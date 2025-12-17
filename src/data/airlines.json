@@ -1,0 +1,140 @@
+[
+  {
+    "id": "aeroflot",
+    "name": "Аэрофлот",
+    "logo": "🛫",
+    "transportMethods": ["cabin", "baggage", "cargo"],
+    "conditions": {
+      "cabin": {
+        "maxCarrierSize": "55x40x25 см",
+        "maxWeight": "8 кг (вместе с переноской)",
+        "allowedAnimals": ["собаки", "кошки", "птицы"],
+        "additionalInfo": "Животное должно находиться в переноске на протяжении всего полета"
+      },
+      "baggage": {
+        "maxCarrierSize": "не более 203 см в сумме трех измерений",
+        "maxWeight": "до 23 кг",
+        "allowedAnimals": ["собаки", "кошки"],
+        "additionalInfo": "Контейнер должен обеспечивать животному возможность встать в полный рост"
+      },
+      "cargo": {
+        "maxCarrierSize": "без ограничений",
+        "maxWeight": "без ограничений",
+        "allowedAnimals": ["собаки", "кошки", "птицы", "грызуны"],
+        "additionalInfo": "Перевозка оформляется как груз"
+      }
+    },
+    "rulesUrl": "https://www.aeroflot.ru/ru-ru/information/transportation/animals"
+  },
+  {
+    "id": "s7",
+    "name": "S7 Airlines",
+    "logo": "✈️",
+    "transportMethods": ["cabin", "baggage"],
+    "conditions": {
+      "cabin": {
+        "maxCarrierSize": "44x30x26 см",
+        "maxWeight": "8 кг",
+        "allowedAnimals": ["собаки мелких пород", "кошки", "птицы"],
+        "additionalInfo": "На рейс допускается не более 4 контейнеров с животными"
+      },
+      "baggage": {
+        "maxCarrierSize": "до 203 см в сумме измерений",
+        "maxWeight": "до 50 кг",
+        "allowedAnimals": ["собаки", "кошки"],
+        "additionalInfo": "Переноска должна быть прочной и соответствовать размерам животного"
+      }
+    },
+    "rulesUrl": "https://www.s7.ru/home/info/bagazh/transportation_animals.dot"
+  },
+  {
+    "id": "pobeda",
+    "name": "Победа",
+    "logo": "🏆",
+    "transportMethods": ["baggage"],
+    "conditions": {
+      "baggage": {
+        "maxCarrierSize": "не более 203 см в сумме",
+        "maxWeight": "до 10 кг",
+        "allowedAnimals": ["кошки", "собаки весом до 10 кг"],
+        "additionalInfo": "В салоне самолета перевозка животных не допускается"
+      }
+    },
+    "rulesUrl": "https://www.pobeda.aero/information/transportation/animals/"
+  },
+  {
+    "id": "ural-airlines",
+    "name": "Уральские авиалинии",
+    "logo": "🌄",
+    "transportMethods": ["cabin", "baggage", "cargo"],
+    "conditions": {
+      "cabin": {
+        "maxCarrierSize": "42x30x25 см",
+        "maxWeight": "8 кг",
+        "allowedAnimals": ["мелкие собаки", "кошки", "птицы"],
+        "additionalInfo": "Переноска должна размещаться под сиденьем впереди стоящего кресла"
+      },
+      "baggage": {
+        "maxCarrierSize": "до 203 см в сумме",
+        "maxWeight": "до 23 кг",
+        "allowedAnimals": ["собаки", "кошки"],
+        "additionalInfo": "Контейнер не должен касаться верхней полки багажного отсека"
+      },
+      "cargo": {
+        "maxCarrierSize": "по согласованию",
+        "maxWeight": "по согласованию",
+        "allowedAnimals": ["крупные собаки", "экзотические животные"],
+        "additionalInfo": "Перевозка согласовывается заранее"
+      }
+    },
+    "rulesUrl": "https://www.uralairlines.ru/passengers/baggage/animals/"
+  },
+  {
+    "id": "utair",
+    "name": "Utair",
+    "logo": "🦅",
+    "transportMethods": ["cabin", "baggage"],
+    "conditions": {
+      "cabin": {
+        "maxCarrierSize": "45x35x25 см",
+        "maxWeight": "8 кг",
+        "allowedAnimals": ["мелкие собаки", "кошки"],
+        "additionalInfo": "Не более 2 животных в одной переноске"
+      },
+      "baggage": {
+        "maxCarrierSize": "до 200 см в сумме",
+        "maxWeight": "до 32 кг",
+        "allowedAnimals": ["собаки", "кошки"],
+        "additionalInfo": "Должна быть обеспечена вентиляция"
+      }
+    },
+    "rulesUrl": "https://www.utair.ru/passengers/luggage/animals/"
+  },
+  {
+    "id": "rossiya",
+    "name": "Россия",
+    "logo": "🇷🇺",
+    "transportMethods": ["cabin", "baggage", "cargo"],
+    "conditions": {
+      "cabin": {
+        "maxCarrierSize": "55x40x20 см",
+        "maxWeight": "8 кг",
+        "allowedAnimals": ["собаки", "кошки", "кролики", "птицы"],
+        "additionalInfo": "Переноска должна быть мягкой или жесткой с надежным замком"
+      },
+      "baggage": {
+        "maxCarrierSize": "до 203 см",
+        "maxWeight": "до 23 кг",
+        "allowedAnimals": ["собаки", "кошки"],
+        "additionalInfo": "Контейнер должен быть изготовлен из пластика или фанеры"
+      },
+      "cargo": {
+        "maxCarrierSize": "по согласованию",
+        "maxWeight": "по согласованию",
+        "allowedAnimals": ["любые виды"],
+        "additionalInfo": "Оформляется через карго-отдел"
+      }
+    },
+    "rulesUrl": "https://www.rossiya-airlines.com/baggage/animals/"
+  }
+]
