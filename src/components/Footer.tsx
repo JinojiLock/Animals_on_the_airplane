@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ContactForm from './ContactForm';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [showContactForm, setShowContactForm] = useState(false);
 
   return (
     <footer className="bg-gray-800 text-white mt-12">
@@ -44,12 +46,15 @@ const Footer: React.FC = () => {
           {/* Контакты */}
           <div>
             <h3 className="text-lg font-semibold mb-3">Контакты</h3>
-            <p className="text-gray-300 text-sm mb-2">
+            <p className="text-gray-300 text-sm mb-3">
               Нашли ошибку или хотите дополнить информацию?
             </p>
-            <p className="text-blue-400 text-sm">
-              info@pet-airlines.example
-            </p>
+            <button
+              onClick={() => setShowContactForm(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+            >
+              📧 Написать нам
+            </button>
           </div>
         </div>
 
@@ -61,6 +66,8 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
     </footer>
   );
 };

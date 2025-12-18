@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Filters from './components/Filters';
 import AirlineCard from './components/AirlineCard';
 import Footer from './components/Footer';
+import DonateButton from './components/DonateButton';
 import { JsonDataService } from './services/DataService';
 import type { Airline } from './types';
 import { useFilters } from './hooks/useFilters';
@@ -87,6 +88,7 @@ function App() {
       </main>
 
       <Footer />
+      <DonateButton />
     </div>
   );
 }
