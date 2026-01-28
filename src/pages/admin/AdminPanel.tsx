@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Airline } from '../../types';
+import type { Airline } from '../../types';
 import { ApiService } from '../../services/ApiService';
 import { AirlineForm } from '../../components/admin/AirlineForm';
 import Header from '../../components/Header';

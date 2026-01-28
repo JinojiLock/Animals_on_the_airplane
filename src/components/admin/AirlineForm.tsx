@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Airline, TransportMethod, TransportConditions } from '../../types';
+import type { Airline, TransportMethod, TransportConditions } from '../../types';
 
 interface AirlineFormProps {
   airline?: Airline;
