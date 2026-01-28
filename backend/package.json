@@ -5,11 +5,11 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --exec ts-node --esm src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "migrate": "ts-node --esm src/migrations/run.ts",
-    "seed": "ts-node --esm src/migrations/seed.ts"
+    "migrate": "tsx src/migrations/run.ts",
+    "seed": "tsx src/migrations/seed.ts"
   },
   "keywords": ["pet", "airlines", "api"],
   "author": "",
@@ -25,8 +25,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^25.1.0",
     "@types/pg": "^8.16.0",
-    "nodemon": "^3.1.11",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.9.3"
   }
 }
