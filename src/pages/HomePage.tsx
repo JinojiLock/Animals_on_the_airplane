@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Filters from './components/Filters';
-import AirlineCard from './components/AirlineCard';
-import Footer from './components/Footer';
-import DonateButton from './components/DonateButton';
-import { ApiService } from './services/ApiService';
-import type { Airline } from './types';
-import { useFilters } from './hooks/useFilters';
+import Header from '../components/Header';
+import Filters from '../components/Filters';
+import AirlineCard from '../components/AirlineCard';
+import Footer from '../components/Footer';
+import DonateButton from '../components/DonateButton';
+import { ApiService } from '../services/ApiService';
+import type { Airline } from '../types';
+import { useFilters } from '../hooks/useFilters';
 
 export function HomePage() {
   const [airlines, setAirlines] = useState<Airline[]>([]);
