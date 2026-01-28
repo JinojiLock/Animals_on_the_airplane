@@ -16,7 +16,7 @@ const AirlineCard: React.FC<AirlineCardProps> = ({ airline }) => {
     <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100 flex flex-col">
       {/* Название авиакомпании */}
       <div className="flex items-center space-x-3 mb-4">
-        <span className="text-4xl">{airline.logo || '✈️'}</span>
+        {/* <span className="text-4xl">{airline.logo || '✈️'}</span> */}
         <h3 className="text-2xl font-bold text-gray-800">{airline.name}</h3>
       </div>
 
