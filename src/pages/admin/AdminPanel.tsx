@@ -115,7 +115,7 @@ export function AdminPanel() {
     <>
       <Header />
       <div className="min-h-screen bg-gray-100 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <div className="flex justify-between items-center">
@@ -242,6 +242,7 @@ export function AdminPanel() {
             )}
           </div>
         )}
+        </div>
       </div>
     </>
   );
