@@ -13,72 +13,114 @@
 
 ## 🚀 Технологии
 
+### Frontend
 - **React 19** - UI библиотека
 - **TypeScript** - статическая типизация
 - **Vite** - быстрая сборка и dev-сервер
 - **Tailwind CSS** - утилитарные CSS стили
-- **JSON** - хранение данных (с возможностью миграции на БД)
+
+### Backend
+- **Node.js + Express** - REST API сервер
+- **TypeScript** - статическая типизация
+- **PostgreSQL** - реляционная база данных
+- **Docker** - контейнеризация БД и pgAdmin
 
 ## 📂 Структура проекта
 
 ```
 pet-airlines/
-├── src/
+├── backend/               # Backend API
+│   ├── src/
+│   │   ├── config/        # Конфигурация БД
+│   │   ├── controllers/   # Контроллеры
+│   │   ├── models/        # Модели данных
+│   │   ├── routes/        # API роуты
+│   │   ├── middleware/    # Middleware
+│   │   ├── migrations/    # Миграции БД
+│   │   └── server.ts      # Точка входа
+│   ├── .env               # Переменные окружения
+│   └── package.json       # Зависимости backend
+├── src/                   # Frontend React приложение
 │   ├── components/        # React компоненты
-│   │   ├── Header.tsx     # Шапка сайта
-│   │   ├── Filters.tsx    # Фильтры поиска
-│   │   ├── AirlineCard.tsx # Карточка авиакомпании
-│   │   └── Footer.tsx     # Подвал сайта
-│   ├── data/              # Данные
-│   │   └── airlines.json  # База данных авиакомпаний
-│   ├── services/          # Сервисы
-│   │   └── DataService.ts # Сервис работы с данными
+│   ├── data/              # Данные (будут заменены на API)
+│   ├── services/          # Сервисы работы с API
 │   ├── types/             # TypeScript типы
-│   │   └── index.ts       # Определения типов
 │   ├── hooks/             # Кастомные хуки
-│   │   └── useFilters.ts  # Хук для фильтрации
-│   ├── App.tsx            # Главный компонент
-│   ├── main.tsx           # Точка входа
-│   └── index.css          # Глобальные стили
-├── public/                # Статические файлы
-├── index.html             # HTML шаблон
-├── package.json           # Зависимости проекта
-├── tsconfig.json          # Конфигурация TypeScript
-├── tailwind.config.js     # Конфигурация Tailwind
-└── vite.config.ts         # Конфигурация Vite
+│   └── App.tsx            # Главный компонент
+├── docker-compose.yml     # Docker конфигурация
+└── package.json           # Зависимости frontend
 ```
 
 ## 🛠 Установка и запуск
 
 ### Предварительные требования
 - Node.js >= 18
+- Docker и Docker Compose
 - npm или yarn
 
-### Установка зависимостей
+### 1. Клонируйте репозиторий
 
 ```bash
+git clone <repository-url>
 cd pet-airlines
-npm install
 ```
 
-### Запуск в режиме разработки
+### 2. Запустите PostgreSQL и pgAdmin
 
 ```bash
+docker-compose up -d
+```
+
+Это запустит:
+- **PostgreSQL** на порту `5432`
+- **pgAdmin 4** на `http://localhost:5050`
+
+**Доступ к pgAdmin:**
+- URL: `http://localhost:5050`
+- Email: `admin@petairlines.com`
+- Password: `admin123`
+
+### 3. Настройте и запустите Backend
+
+```bash
+cd backend
+npm install
+
+# Запустите миграции
+npm run migrate
+
+# Заполните БД данными
+npm run seed
+
+# Запустите dev сервер
 npm run dev
 ```
 
-Приложение будет доступно по адресу: `http://localhost:5173`
+Backend API будет доступен на `http://localhost:3001`
 
-### Сборка для продакшена
+### 4. Настройте и запустите Frontend
+
+В новом терминале:
 
 ```bash
-npm run build
+# Из корневой директории
+npm install
+npm run dev
 ```
 
-### Предпросмотр продакшен сборки
+Frontend будет доступен на `http://localhost:5173`
+
+### Быстрый старт
 
 ```bash
-npm run preview
+# 1. Запустите БД
+docker-compose up -d
+
+# 2. Запустите backend (в одном терминале)
+cd backend && npm install && npm run migrate && npm run seed && npm run dev
+
+# 3. Запустите frontend (в другом терминале)
+npm install && npm run dev
 ```
 
 ## 🎯 Функциональность
@@ -98,78 +140,67 @@ npm run preview
   - Дополнительная информация
 - Ссылку на официальные правила авиакомпании
 
-## 📊 Добавление данных
+## 📊 База данных
 
-### Формат данных в airlines.json
+### Структура БД
 
-```json
-{
-  "id": "unique-id",
-  "name": "Название авиакомпании",
-  "logo": "🛫",
-  "transportMethods": ["cabin", "baggage", "cargo"],
-  "conditions": {
-    "cabin": {
-      "maxCarrierSize": "55x40x25 см",
-      "maxWeight": "8 кг",
-      "allowedAnimals": ["собаки", "кошки"],
-      "additionalInfo": "Дополнительная информация"
-    }
-  },
-  "rulesUrl": "https://airline.com/rules"
-}
+**airlines** - Авиакомпании
+- `id` - уникальный идентификатор
+- `name` - название авиакомпании
+- `logo` - эмодзи логотип
+- `rules_url` - ссылка на официальные правила
+
+**transport_methods** - Способы перевозки
+- `airline_id` - связь с авиакомпанией
+- `method` - способ (cabin, baggage, cargo)
+
+**conditions** - Условия перевозки
+- `airline_id` - связь с авиакомпанией
+- `transport_method` - способ перевозки
+- `max_carrier_size` - максимальный размер переноски
+- `max_weight` - максимальный вес
+- `allowed_animals` - допустимые животные
+- `additional_info` - дополнительная информация
+
+### Подключение к БД через pgAdmin
+
+1. Откройте `http://localhost:5050`
+2. Войдите с учетными данными (см. выше)
+3. Добавьте новый сервер:
+   - Name: `Pet Airlines`
+   - Host: `postgres` (для Docker) или `localhost`
+   - Port: `5432`
+   - Database: `pet_airlines`
+   - Username: `petadmin`
+   - Password: `petpassword123`
+
+## 🔌 API Endpoints
+
+### GET /api/airlines
+Получить все авиакомпании с фильтрацией
+
+**Query параметры:**
+- `transportMethods` - фильтр по способу перевозки
+- `search` - поиск по названию
+
+**Пример:**
+```bash
+curl "http://localhost:3001/api/airlines?transportMethods=cabin&search=Аэрофлот"
 ```
 
-### Способы перевозки
-- `cabin` - в салоне
-- `baggage` - в багаже
-- `cargo` - карго
+### GET /api/airlines/:id
+Получить авиакомпанию по ID
 
-## 🔄 Миграция на базу данных
-
-Приложение спроектировано с учетом легкой миграции на БД. Для этого:
-
-1. Реализуйте интерфейс `IDataService` из `src/services/DataService.ts`
-2. Создайте новый класс, например `ApiDataService`:
-
-```typescript
-export class ApiDataService implements IDataService {
-  private baseUrl: string;
-
-  constructor(baseUrl: string) {
-    this.baseUrl = baseUrl;
-  }
-
-  async getAirlines(): Promise<Airline[]> {
-    const response = await fetch(`${this.baseUrl}/airlines`);
-    return response.json();
-  }
-
-  async getAirlineById(id: string): Promise<Airline | undefined> {
-    const response = await fetch(`${this.baseUrl}/airlines/${id}`);
-    return response.json();
-  }
-
-  filterAirlines(
-    airlines: Airline[],
-    transportMethods: TransportMethod[],
-    searchQuery: string
-  ): Airline[] {
-    // Логика фильтрации или запрос к API с параметрами
-    return airlines;
-  }
-}
+**Пример:**
+```bash
+curl "http://localhost:3001/api/airlines/aeroflot"
 ```
 
-3. Замените инициализацию сервиса в `App.tsx`:
+### GET /api/airlines/transport-methods
+Получить список всех доступных способов перевозки
 
-```typescript
-// Было
-const dataService = new JsonDataService(airlinesData);
-
-// Стало
-const dataService = new ApiDataService('https://api.example.com');
-```
+### GET /health
+Проверка состояния сервера и БД
 
 ## 🎨 Кастомизация
 
